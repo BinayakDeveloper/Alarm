@@ -7,7 +7,7 @@ buttons.forEach((val, ind) => {
     buttons[ind].classList.toggle("buttonActive");
     buttonDots[ind].classList.toggle("dotActive");
     let buttonStatus = !checkBoxes[ind].checked;
-    console.log(buttonStatus);
+    // console.log(buttonStatus);
   });
 });
 
@@ -22,27 +22,21 @@ cancelBtn.addEventListener("click", () => {
   alarmEventContainer.classList.remove("showAlarmEventContainer");
 });
 
-let hourContainer = document.querySelector(".hour");
-let prevHour = document.querySelector(".prevHour");
-let curHour = document.querySelector(".curHour");
-let nextHour = document.querySelector(".nextHour");
-
-hourContainer.addEventListener("wheel", (e) => {
-  if (e.deltaY > 0) {
-    let hour = Number(curHour.textContent);
-    if (hour < 12) {
-      prevHour.textContent = hour;
-      curHour.textContent = hour + 1;
-      nextHour.textContent = hour + 2 == 13 ? "-" : hour + 2;
-    }
+let alarmNoteInput = document.querySelector("#alarmNote");
+let resetBtn = document.querySelector(".fa-close");
+alarmNoteInput.addEventListener("input", (e) => {
+  if (e.target.value.trim() !== "") {
+    resetBtn.classList.add("resetShow");
   } else {
-    if (Number(curHour.textContent) > 1) {
-      prevHour.textContent =
-        Number(prevHour.textContent) - 1 == 0
-          ? "-"
-          : Number(prevHour.textContent) - 1;
-      curHour.textContent = Number(curHour.textContent) - 1;
-      nextHour.textContent = Number(curHour.textContent) + 1;
-    }
+    resetBtn.classList.remove("resetShow");
   }
+});
+
+let ringtoneContainer = document.querySelector(".ringtone");
+let alarmSoundToggleBtn = document.querySelector(".fa-chevron-down");
+let ringtoneListContainer = document.querySelector(".ringtoneLists");
+
+ringtoneContainer.addEventListener("click", () => {
+  ringtoneListContainer.classList.toggle("showSongs");
+  alarmSoundToggleBtn.classList.toggle("hide");
 });

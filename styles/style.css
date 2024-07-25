@@ -5,6 +5,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+::selection {
+    background-color: transparent;
+}
+
 body {
     background-color: black;
     color: white;
@@ -121,9 +125,12 @@ body {
 .alarmEventContainer {
     background-color: #2E2E2E;
     position: absolute;
-    top: 10px;
+    top: 100%;
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     border-radius: 30px 30px 0 0;
     overflow: hidden;
     transition: all 0.3s ease-out;
@@ -138,120 +145,241 @@ body {
             content: "Cancel";
             color: #5B92E8;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
         >.newEvent::after {
             content: "New alarm";
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
         >.eventDone::after {
             content: "Done";
             color: #5B92E8;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
     }
 
     >.eventSelection {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+        overflow: hidden auto;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
 
         >.timers {
             background-color: #434343;
-            padding: 1rem 3rem;
-            border-radius: 20px;
+            padding: 1.5rem 2.1rem;
+            border-radius: 5px;
+            position: relative;
             display: flex;
-            gap: 30px;
+            align-items: center;
+            justify-content: center;
 
-            >.hour {
+            >input {
+                background-color: #5f5f5f;
+                padding: 1rem;
+                border-radius: 5px;
+                color: white;
+                font-size: 1.3rem;
+                font-weight: bold;
+                letter-spacing: 5px;
+                border: 2px solid transparent;
+                transition: all 0.2s linear;
+                cursor: pointer;
+                outline: 0;
+
+                &::-webkit-calendar-picker-indicator {
+                    background-color: #fff;
+                    border-radius: 3.5px;
+                    cursor: pointer;
+                }
+
+                &::selection {
+                    background-color: transparent;
+                }
+
+                &:focus {
+                    border-color: #787878;
+                }
+            }
+
+            >label {
+                position: absolute;
+                right: 65px;
+                cursor: pointer;
+
+                >i {
+                    font-size: 1rem;
+                    background-color: #414141;
+                    padding: 5px;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        >.alarmInfo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 15px;
+            background-color: #434343;
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
+
+            >.alarmName {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: end;
+
+                >input {
+                    background-color: transparent;
+                    border: 0;
+                    outline: 0;
+                    color: #fff;
+                    border-bottom: 1px solid #5f5f5f;
+                    padding: 5px 20px 5px 0;
+                    font-size: 1.14rem;
+                    transition: all 0.1s linear;
+                    caret-color: #5B92E8;
+
+                    &:focus {
+                        border-color: #287aff;
+                    }
+
+                    &::placeholder {
+                        color: #909090;
+                        font-size: 17px;
+                    }
+
+                    &::selection {
+                        background-color: #438699;
+                    }
+                }
+
+                >i {
+                    position: absolute;
+                    font-size: 13px;
+                    color: #434343;
+                    background-color: #909090;
+                    padding: 3.5px 4px 2.6px 4px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    transform: scale(0);
+                    transition: all 0.1s linear;
+
+                    &:hover {
+                        background-color: #9c9c9c;
+                    }
+                }
+
+                >.resetShow {
+                    transform: scale(1);
+                }
+            }
+
+            >.ringtone {
                 width: 100%;
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                gap: 10px;
+                justify-content: space-between;
+                border-bottom: 1px solid #5f5f5f;
+                padding-bottom: 5px;
+                cursor: pointer;
 
-                >.hourTime {
+                >.ringtoneLeft {
                     display: flex;
+                    align-items: flex-start;
+                    justify-content: center;
                     flex-direction: column;
-                    align-items: center;
-                    justify-content: flex-start;
-                    gap: 10px;
-                    width: 20px;
+                    gap: 3px;
 
-                    >span {
-                        font-size: 1.4rem;
-
-                        &:nth-child(1),
-                        &:nth-child(3) {
-                            opacity: 0.6;
+                    >.ringtoneInfo {
+                        >span {
+                            color: #909090;
+                            font-size: 14px;
                         }
                     }
                 }
 
-                >.hourExtention {
-                    font-size: 1.4rem;
+                >.ringtoneRight {
+                    >i {
+                        color: #909090;
+                        transition: all 0.2s linear;
+                    }
+
+                    >.hide {
+                        transform: rotate(-180deg);
+                    }
                 }
             }
 
-            >.minute {
+            >.ringtoneLists {
                 width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 10px;
+                height: 0;
+                overflow-y: auto;
+                transition: height 0.2s linear;
 
-                >.minTime {
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                >form {
                     display: flex;
+                    align-items: flex-start;
+                    justify-content: center;
                     flex-direction: column;
-                    align-items: center;
-                    justify-content: flex-start;
                     gap: 10px;
-                    width: 20px;
 
-                    >span {
-                        font-size: 1.4rem;
+                    >label {
+                        width: 100%;
+                        cursor: pointer;
 
-                        &:nth-child(1),
-                        &:nth-child(3) {
-                            opacity: 0.6;
+                        >.song {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            >.songLeft {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 8px;
+
+                                >.songImg {
+                                    background-color: #fff;
+                                    border-radius: 5px;
+
+                                    >img {
+                                        height: 30px;
+                                        object-fit: contain;
+                                    }
+                                }
+                            }
+
+                            >.songRight {
+                                >input {
+                                    cursor: pointer;
+                                }
+                            }
                         }
                     }
                 }
-
-                >.minExtention {
-                    font-size: 1.4rem;
-                }
             }
 
-            >.amPmContainer {
-                width: 100%;
-                display: flex;
-                align-items: flex-end;
-                justify-content: center;
-                gap: 10px;
-
-                >.amPm {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: flex-start;
-                    gap: 10px;
-                    width: 20px;
-
-                    >span {
-                        font-size: 1.4rem;
-                    }
-                }
+            >.showSongs {
+                height: 166px;
             }
-
-
         }
     }
 }
 
 .showAlarmEventContainer {
-    top: 10px;
+    top: 0;
 }

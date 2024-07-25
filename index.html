@@ -14,6 +14,15 @@
     />
     <title>ADVANCED ALARM | Final Project By Binayak Das</title>
     <link rel="stylesheet" href="./styles/style.css" />
+
+    <!-- Font Awsome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <div class="container">
@@ -56,33 +65,123 @@
       </div>
       <div class="eventSelection">
         <div class="timers">
-          <div class="hour">
-            <div class="hourTime">
-              <span class="prevHour">-</span>
-              <span class="curHour">1</span>
-              <span class="nextHour">2</span>
+          <input type="time" name="time" id="time" value="00:00" />
+        </div>
+
+        <div class="alarmInfo">
+          <div class="alarmName">
+            <input
+              type="text"
+              id="alarmNote"
+              placeholder="Alarm note"
+              spellcheck="false"
+              autocomplete="off"
+            />
+            <i class="fa fa-close"></i>
+          </div>
+
+          <div class="ringtone">
+            <div class="ringtoneLeft">
+              <div class="ringtoneHeading">
+                <span>Ringtone</span>
+              </div>
+              <div class="ringtoneInfo">
+                <span>Casimiro</span>
+              </div>
             </div>
-            <div class="hourExtention">
-              <span>h</span>
+
+            <div class="ringtoneRight">
+              <i class="fa-solid fa-chevron-down"></i>
             </div>
           </div>
 
-          <div class="minute">
-            <div class="minTime">
-              <span class="prevMin">0</span>
-              <span class="curMin">1</span>
-              <span class="nextMin">2</span>
-            </div>
-            <div class="minExtention">
-              <span>m</span>
-            </div>
-          </div>
+          <div class="ringtoneLists">
+            <form>
+              <label for="song1">
+                <div class="song">
+                  <div class="songLeft">
+                    <div class="songImg">
+                      <img src="./Assets/SongLogo.png" alt="logo" />
+                    </div>
+                    <div class="songName">
+                      <span>Casimiro</span>
+                    </div>
+                  </div>
+                  <div class="songRight">
+                    <input
+                      type="radio"
+                      name="song"
+                      id="song1"
+                      value="./Assets/Ringtones/casimiro.mp3"
+                      checked
+                    />
+                  </div>
+                </div>
+              </label>
 
-          <div class="amPmContainer">
-            <div class="amPm">
-              <span class="prevState">AM</span>
-              <span class="curState">PM</span>
-            </div>
+              <label for="song2">
+                <div class="song">
+                  <div class="songLeft">
+                    <div class="songImg">
+                      <img src="./Assets/SongLogo.png" alt="logo" />
+                    </div>
+                    <div class="songName">
+                      <span>Samsung</span>
+                    </div>
+                  </div>
+                  <div class="songRight">
+                    <input
+                      type="radio"
+                      name="song"
+                      id="song2"
+                      value="./Assets/Ringtones/samsung.mp3"
+                    />
+                  </div>
+                </div>
+              </label>
+
+              <label for="song3">
+                <div class="song">
+                  <div class="songLeft">
+                    <div class="songImg">
+                      <img src="./Assets/SongLogo.png" alt="logo" />
+                    </div>
+                    <div class="songName">
+                      <span>Rising</span>
+                    </div>
+                  </div>
+                  <div class="songRight">
+                    <input
+                      type="radio"
+                      name="song"
+                      id="song3"
+                      value="./Assets/Ringtones/rising.mp3"
+                    />
+                  </div>
+                </div>
+              </label>
+
+              <label for="song4">
+                <div class="song">
+                  <div class="songLeft">
+                    <div class="songImg">
+                      <img src="./Assets/SongLogo.png" alt="logo" />
+                    </div>
+                    <div class="songName">
+                      <span>Odacity</span>
+                    </div>
+                  </div>
+                  <div class="songRight">
+                    <input
+                      type="radio"
+                      name="song"
+                      id="song4"
+                      value="./Assets/Ringtones/odacity.mp3"
+                    />
+                  </div>
+                </div>
+              </label>
+            </form>
           </div>
         </div>
       </div>
