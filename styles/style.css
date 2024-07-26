@@ -15,12 +15,17 @@ body {
     overflow: hidden;
 }
 
+.heading {
+    border-bottom: 1px solid #2e2e2e;
+    padding: 0.8rem 1rem;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 1.5rem 1rem;
     max-height: 100vh;
+    padding: 0.3rem 1rem;
 
     >.alarmContainer {
         display: flex;
@@ -36,6 +41,28 @@ body {
         &::-webkit-scrollbar-thumb {
             border-radius: 10px;
             background-color: rgb(68, 68, 68);
+        }
+
+        >.noAlarm {
+            display: none;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+
+            >img {
+                height: 15rem;
+                animation: rightEntry 0.3s ease-in 1 forwards;
+            }
+
+            >span {
+                font-size: 20px;
+                color: #7c7c7c;
+            }
+        }
+
+        .noAlarmShow {
+            display: flex;
         }
 
         >.alarm {
@@ -64,6 +91,11 @@ body {
                 }
 
                 >.leftBottom {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 5px;
+
                     >p {
                         font-size: 13px;
                         opacity: 0.85;
@@ -119,6 +151,16 @@ body {
         border-radius: 50%;
         padding: 4px 15px;
         cursor: pointer;
+    }
+}
+
+@keyframes rightEntry {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }
 
@@ -366,6 +408,7 @@ body {
                             >.songRight {
                                 >input {
                                     cursor: pointer;
+                                    outline: 0;
                                 }
                             }
                         }

@@ -1,0 +1,20 @@
+[
+  {
+    "alarmId": 1,
+    "alarmTime": "10:02",
+    "alarmExt": "PM",
+    "alarmNote": "",
+    "alarmStatus": false,
+    "ringtoneName": "Casimiro",
+    "ringtonePath": "./Assets/Ringtones/casimiro.mp3"
+  },
+  {
+    "alarmId": 2,
+    "alarmTime": "10:25",
+    "alarmExt": "AM",
+    "alarmNote": "Hello",
+    "alarmStatus": true,
+    "ringtoneName": "Odacity",
+    "ringtonePath": "./Assets/Ringtones/odacity.mp3"
+  }
+]

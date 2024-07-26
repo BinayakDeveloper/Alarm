@@ -12,7 +12,9 @@
       name="description"
       content="This Is The Final Project Made By Binayak"
     />
-    <title>ADVANCED ALARM | Final Project By Binayak Das</title>
+    <title>
+      ALARM | The Only Alarm Which Keeps You Awake And Reminds Your Task
+    </title>
     <link rel="stylesheet" href="./styles/style.css" />
 
     <!-- Font Awsome CDN -->
@@ -25,13 +27,12 @@
     />
   </head>
   <body>
+    <div class="heading">
+      <h1>Alarm</h1>
+    </div>
     <div class="container">
-      <div class="heading">
-        <h1>Alarm</h1>
-      </div>
-
       <div class="alarmContainer">
-        <div class="alarm">
+        <!-- <div class="alarm">
           <div class="leftContent">
             <div class="leftTop">
               <h1>11:30</h1>
@@ -49,6 +50,10 @@
               </div>
             </div>
           </label>
+        </div> -->
+        <div class="noAlarm">
+          <img src="./Assets/NoAlarm.svg" alt="No alarm" />
+          <span>No alarms</span>
         </div>
       </div>
 
@@ -86,7 +91,7 @@
                 <span>Ringtone</span>
               </div>
               <div class="ringtoneInfo">
-                <span>Casimiro</span>
+                <span class="selectedSong">Casimiro</span>
               </div>
             </div>
 
@@ -111,8 +116,10 @@
                     <input
                       type="radio"
                       name="song"
+                      class="songRadio"
                       id="song1"
                       value="./Assets/Ringtones/casimiro.mp3"
+                      data-song-name="Casimiro"
                       checked
                     />
                   </div>
@@ -133,8 +140,10 @@
                     <input
                       type="radio"
                       name="song"
+                      class="songRadio"
                       id="song2"
                       value="./Assets/Ringtones/samsung.mp3"
+                      data-song-name="Samsung"
                     />
                   </div>
                 </div>
@@ -154,8 +163,10 @@
                     <input
                       type="radio"
                       name="song"
+                      class="songRadio"
                       id="song3"
                       value="./Assets/Ringtones/rising.mp3"
+                      data-song-name="Rising"
                     />
                   </div>
                 </div>
@@ -175,8 +186,10 @@
                     <input
                       type="radio"
                       name="song"
+                      class="songRadio"
                       id="song4"
                       value="./Assets/Ringtones/odacity.mp3"
+                      data-song-name="Odacity"
                     />
                   </div>
                 </div>
