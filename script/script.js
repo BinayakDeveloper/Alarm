@@ -1,3 +1,4 @@
+// Pause Remaining Audios
 function pausePrevAudio() {
   if (ringtoneAudio !== undefined) {
     ringtoneAudio.pause();
@@ -11,7 +12,9 @@ let timeInput = document.querySelector("#time");
 addBtn.addEventListener("click", () => {
   let hour = new Date().getHours();
   let mins = new Date().getMinutes();
-  timeInput.value = `${hour}:${mins}`;
+  timeInput.value = `${hour < 10 ? "0" + hour : hour}:${
+    mins < 10 ? "0" + mins : mins
+  }`;
   alarmEventContainer.classList.add("showAlarmEventContainer");
 });
 
