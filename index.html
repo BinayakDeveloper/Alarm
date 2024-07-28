@@ -27,30 +27,44 @@
     />
   </head>
   <body>
+    <!-- Entry Animation -->
+    <div class="startUpAnimation">
+      <div class="assets">
+        <div class="topAssets">
+          <div class="startUpHeading">
+            <h2>ADVANCED</h2>
+            <h2>ALARM</h2>
+          </div>
+          <div class="credit">
+            <p>Designed & developed by <span>Binayak</span></p>
+          </div>
+        </div>
+        <div class="bottomAssets">
+          <div class="enterBtn">
+            <button class="startBtn">Let's start</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pop up Structue -->
+    <div class="alarmPopUp">
+      <div class="popUpTime">
+        <h1 class="popUpHourMins"></h1>
+        <span class="popUpDayInfo"><!--Sunday, 28 July--></span>
+      </div>
+      <div class="popUpNote">
+        <p class="popUpAlarmNote"></p>
+      </div>
+      <div class="alarmStop">
+        <button>Stop</button>
+      </div>
+    </div>
     <div class="heading">
       <h1>Alarm</h1>
     </div>
     <div class="container">
       <div class="alarmContainer">
-        <!-- <div class="alarm">
-          <div class="leftContent">
-            <div class="leftTop">
-              <h1>11:30</h1>
-              <h5>AM</h5>
-            </div>
-            <div class="leftBottom">
-              <p>Ring once</p>
-            </div>
-          </div>
-          <input type="checkbox" name="onOffData" id="onOffData" />
-          <label for="onOffData"
-            ><div class="rightContent">
-              <div class="button">
-                <div class="buttonDot"></div>
-              </div>
-            </div>
-          </label>
-        </div> -->
         <div class="noAlarm">
           <img src="./Assets/NoAlarm.svg" alt="No alarm" />
           <span>No alarms</span>
