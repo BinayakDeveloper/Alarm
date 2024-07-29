@@ -65,6 +65,7 @@ async function main() {
 
   // Play Ringtones On Select
   let selectedSong = document.querySelector(".selectedSong");
+  ringtoneListContainer.classList.remove("showSongs");
   var ringtoneAudio = undefined;
   let ringtones = document.querySelectorAll(".songRadio");
   ringtones.forEach((song) => {
@@ -549,13 +550,23 @@ async function main() {
             curHour == alarmHour &&
             curMins == alarmMins
           ) {
+            pausePrevAudio();
+
             clearInterval(alarmInterval);
             audio.src = alarm.ringtonePath;
             audio.play();
             popUp.classList.add("alarmPopUpShow");
             alarmEventContainer.classList.remove("showAlarmEventContainer");
+            alarmEventContainer.classList.remove("showAlarmEventContainer");
             alarmEventContainer.setAttribute("data-edit-alarm-id", "");
             timeInput.blur();
+            alarmNoteInput.value = "";
+            alarmNoteInput.blur();
+            selectedSong.textContent =
+              ringtones[0].getAttribute("data-song-name");
+            ringtones[0].checked = true;
+            alarmSoundToggleBtn.classList.remove("hide");
+            ringtoneListContainer.classList.remove("showSongs");
 
             // Updating PopUp Values
             let popUpHourMins = document.querySelector(".popUpHourMins");
