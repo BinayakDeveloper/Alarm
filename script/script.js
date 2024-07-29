@@ -553,6 +553,9 @@ async function main() {
             audio.src = alarm.ringtonePath;
             audio.play();
             popUp.classList.add("alarmPopUpShow");
+            alarmEventContainer.classList.remove("showAlarmEventContainer");
+            alarmEventContainer.setAttribute("data-edit-alarm-id", "");
+            timeInput.blur();
 
             // Updating PopUp Values
             let popUpHourMins = document.querySelector(".popUpHourMins");
