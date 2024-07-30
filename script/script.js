@@ -1,5 +1,4 @@
-// Main Function
-
+// Hide Startup Animations On Window Load And Start MAIN Operations
 document.addEventListener("DOMContentLoaded", () => {
   let enterBtn = document.querySelector(".startBtn");
   enterBtn.addEventListener("click", () => {
@@ -12,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Main Function
 async function main() {
   // Add Alarm Operation
   let addBtn = document.querySelector(".addAlarm");
